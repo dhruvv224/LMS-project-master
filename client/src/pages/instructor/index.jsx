@@ -7,13 +7,11 @@ import { InstructorContext } from "@/context/instructor-context";
 import { fetchInstructorCourseListService } from "@/services";
 import { BarChart, Book, LogOut } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
-
 function InstructorDashboardpage() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const { resetCredentials } = useContext(AuthContext);
   const { instructorCoursesList, setInstructorCoursesList } =
     useContext(InstructorContext);
-
   async function fetchAllCourses() {
     const response = await fetchInstructorCourseListService();
     if (response?.success) setInstructorCoursesList(response?.data);
@@ -59,7 +57,7 @@ function InstructorDashboardpage() {
           <nav>
             {menuItems.map((menuItem) => (
               <Button
-                className="w-full justify-start mb-2"
+                className={`w-full justify-start mb-2 `}
                 key={menuItem.value}
                 variant={activeTab === menuItem.value ? "secondary" : "ghost"}
                 onClick={

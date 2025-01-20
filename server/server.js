@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -12,8 +12,8 @@ const studentCourseProgressRoutes = require("./routes/student-routes/course-prog
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI ="mongodb://localhost:27017/"
-
+const MONGO_URI =process.env.MONGO_URI
+console.log(MONGO_URI)
 app.use(
   cors({
     origin: "mongodb://localhost:27017/",
